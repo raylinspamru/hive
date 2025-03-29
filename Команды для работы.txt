@@ -1,0 +1,15 @@
+Создать виртуальное пространство
+python -m venv venv
+
+Активировать ВП
+venv\Scripts\activate
+
+Древо проекта:
+tree /f | Out-File -Encoding UTF8 project_structure.txt
+
+Полный код проекта от структуры проекта:
+python extract_files.py
+
+Полный код веб интерфейса:
+python exweb.py
+

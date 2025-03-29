@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-4">
+        <!-- Навигационная панель -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
+            <div class="container-fluid">
+                <h1 class="navbar-brand mb-0">Главная</h1>
+                <div class="navbar-nav ms-auto">
+                    <a href="{{ url_for('dashboard.index') }}" class="nav-link" title="Обновить">
+                        <i class="fas fa-sync-alt"></i>
+                    </a>
+                    <a href="{{ url_for('logout') }}" class="nav-link" title="Выйти">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Основной контент -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Панель кнопок -->
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <h2 class="card-title mb-4">Панель управления</h2>
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <a href="{{ url_for('tasks.index') }}" class="btn btn-primary w-100">
+                                    <i class="fas fa-tasks me-2"></i>Задачи
+                                </a>
+                            </div>
+                            <div class="col-md-3"> <!-- Добавьте этот блок -->
+                                <a href="{{ url_for('roles.index') }}" class="btn btn-primary w-100">
+                                    <i class="fas fa-users me-2"></i>Роли и пользователи
+                                </a>
+                            </div>
+                            <!-- Нереализованные разделы временно убраны -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Статистика -->
+                <div class="card shadow-sm mt-4">
+                    <div class="card-body">
+                        <h3 class="card-title">Статистика</h3>
+                        <p class="text-muted">Общее количество задач: {{ total_tasks or 'N/A' }}</p>
+                        <p class="text-muted">Активных пользователей: {{ active_users or 'N/A' }}</p>
+                        <p class="text-muted">Подробная статистика будет добавлена позже.</p>
+                    </div>
+                </div>
+
+                <!-- Инструкция -->
+                <div class="card shadow-sm mt-4">
+                    <div class="card-body">
+                        <h3 class="card-title">Инструкция</h3>
+                        <p>Добро пожаловать в панель управления! Используйте кнопки выше для навигации:</p>
+                        <ul>
+                            <li><strong>Задачи:</strong> Управление задачами сотрудников.</li>
+                            <!-- Описания нереализованных разделов временно убраны -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
